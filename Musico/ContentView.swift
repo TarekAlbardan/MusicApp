@@ -10,29 +10,36 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("🎵 Music Trivia 🎵")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.top, 20)
+            ZStack {
+                // Background Gradient
+                LinearGradient(gradient: Gradient(colors: [Color.gray, Color(UIColor.darkGray)]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
 
-                NavigationLink(destination: TriviaView()) {
-                    Text("Start Quiz")
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                VStack {
+                    // Title
+                    Text("🎵 Musico 🎵")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                }
-                .padding(.horizontal, 40)
-                .padding(.top, 20)
+                        .padding(.top, 40)
 
-                Spacer()
+                    // "Start Quiz" Button
+                    NavigationLink(destination: TriviaView()) {
+                        Text("Start Quiz")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(width: 200, height: 50)
+                            .background(Color.green.opacity(0.8))
+                            .cornerRadius(15)
+                            .shadow(radius: 5)
+                    }
+                    .padding(.top, 30)
+
+                    Spacer()
+                }
             }
-            .padding()
         }
     }
 }

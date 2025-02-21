@@ -11,7 +11,7 @@ class TriviaAPI {
     static let shared = TriviaAPI()
     
     func fetchQuestions(completion: @escaping ([TriviaQuestion]?) -> Void) {
-        guard let url = URL(string: "https://the-trivia-api.com/api/questions?categories=music&limit=50") else {
+        guard let url = URL(string: "https://the-trivia-api.com/api/questions?categories=music&limit=10") else {
             completion(nil)
             return
         }
